@@ -107,7 +107,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="resetApp()">
-                    <i data-lucide="receipt" class="w-8 h-8 text-white"></i>
+                    <span class="w-8 h-8 flex items-center justify-center border-2 border-white text-white font-bold rounded">
+                        S/.
+                    </span>
+
                     <span class="font-bold text-xl tracking-tight text-white" id="header-title">Portal de Cotizaciones</span>
                 </div>
                 <div id="selected-brand-badge" class="hidden items-center bg-white/20 px-4 py-1.5 rounded-full backdrop-blur-sm">
@@ -257,7 +260,7 @@
     </main>
 
     <!-- MODAL DE COTIZACIÓN (Vista de Impresión) -->
-    <div id="quote-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden overflow-y-auto pt-10 pb-10 flex justify-center no-print">
+    <div id="quote-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden overflow-y-auto pt-10 pb-10 flex justify-center">
         <div class="bg-white w-full max-w-4xl min-h-screen md:min-h-0 md:rounded-2xl shadow-2xl relative flex flex-col modal-content" id="printable-area">
             
             <!-- Modal Header (No imprimible) -->
@@ -380,10 +383,10 @@
                     </div>
                 </div>
 
-                <div class="mt-12 pt-8 border-t flex justify-between text-center text-xs text-gray-400">
+                <!-- <div class="mt-12 pt-8 border-t flex justify-between text-center text-xs text-gray-400">
                     <div class="w-48 border-t border-gray-400 pt-2 mx-auto">Firma del Solicitante</div>
                     <div class="w-48 border-t border-gray-400 pt-2 mx-auto">Sello de la Empresa</div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -401,6 +404,11 @@
                 id: 'bembos',
                 name: 'Bembos',
                 razonSocial: 'BEMBOS S.A.C. 20101087647',
+                empresa: {
+                    ruc: '20101087647',
+                    razon: 'BEMBOS S.A.C',
+                    direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
                 colors: { primary: '#1D4ED8', secondary: '#1E3A8A', light: '#EFF6FF', text: '#0F172A' }, // Azul y Amarillo Bembos
                 logoText: 'B',
                 heroImg: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80',
@@ -420,6 +428,11 @@
                 id: 'donbelisario',
                 name: 'Don Belisario',
                 razonSocial: 'DON BELISARIO S.A.C. 20550012345',
+                empresa: {
+                    ruc: '20545699126',
+                    razon: 'EP DE FRANQUICIAS S.A.C',
+                    direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
                 colors: { primary: '#166534', secondary: '#14532d', light: '#f0fdf4', text: '#022c22' }, // Verde oscuro
                 logoText: 'DB',
                 heroImg: 'https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?auto=format&fit=crop&w=1200&q=80',
@@ -435,6 +448,11 @@
                 id: 'popeyes',
                 name: 'Popeyes',
                 razonSocial: 'POPEYES PERU S.A.C. 20555512345',
+                empresa: {
+                    ruc: '20505897812',
+                    razon: 'CORPORACION PERUANA DE RESTAURANTES S.A.C.',
+                    direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
                 colors: { primary: '#ea580c', secondary: '#c2410c', light: '#fff7ed', text: '#431407' }, // Naranja Popeyes
                 logoText: 'P',
                 heroImg: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=1200&q=80',
@@ -451,6 +469,11 @@
                 id: 'chinawok',
                 name: 'ChinaWok',
                 razonSocial: 'CHINAWOK S.A. 20123456780',
+                empresa: {
+                    ruc: '20101869947',
+                    razon: 'ALERT DEL PERU S.A.C.',
+                    direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
                 colors: { primary: '#e11d48', secondary: '#be123c', light: '#fff1f2', text: '#4c0519' }, // Rojo
                 logoText: 'CW',
                 heroImg: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=1200&q=80',
@@ -466,6 +489,11 @@
                 id: 'papajohns',
                 name: 'Papa Johns',
                 razonSocial: 'PAPA JOHNS PERU S.A. 20444455551',
+                empresa: {
+                    ruc: '20545699550',
+                    razon: 'EP DE RESTAURANTES S.A.C.',
+                    direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
                 colors: { primary: '#047857', secondary: '#065f46', light: '#ecfdf5', text: '#022c22' }, // Verde y Rojo Papa Johns (Usando Verde base)
                 logoText: 'PJ',
                 heroImg: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80',
@@ -481,6 +509,11 @@
                 id: 'dunkindonuts',
                 name: 'Dunkin Donuts',
                 razonSocial: 'DUNKIN PERU S.A.C. 20888899991',
+                empresa: {
+                    ruc: '20144215649',
+                    razon: 'NUTRA S.A.C.',
+                    direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
                 colors: { primary: '#db2777', secondary: '#be185d', light: '#fdf2f8', text: '#500724' }, // Rosa Dunkin
                 logoText: 'DD',
                 heroImg: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80',
@@ -557,6 +590,11 @@
             logoContainer.style.color = currentBrand.colors.primary;
             document.getElementById('form-brand-name').innerText = currentBrand.name;
 
+            // Autocompletar datos de empresa por marca
+            document.getElementById('empresa-ruc').value = currentBrand.empresa?.ruc || '';
+            document.getElementById('empresa-razon').value = currentBrand.empresa?.razon || '';
+            document.getElementById('empresa-dir').value = currentBrand.empresa?.direccion || '';
+
             // Transición de Pantallas
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2').classList.remove('hidden');
@@ -586,6 +624,9 @@
             
             // Limpiar formulario
             document.getElementById('quote-form').reset();
+            document.getElementById('empresa-ruc').value = '';
+            document.getElementById('empresa-razon').value = '';
+            document.getElementById('empresa-dir').value = '';
             document.getElementById('fecha-solicitud').valueAsDate = new Date();
 
             // Transición de Pantallas
