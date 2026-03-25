@@ -383,7 +383,7 @@
                                     <th class="p-2 border">CCI</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cuentas-bancarias-body">
                                 <tr>
                                     <td class="p-2 border font-medium">Bco. Crédito (BCP)</td>
                                     <td class="p-2 border">194-1141972-0-69</td>
@@ -450,6 +450,11 @@
                     razon: 'BEMBOS S.A.C',
                     direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
                 },
+                cuentas: {
+                    bcp: { cuenta: '194-1141972-0-69', cci: '002-194-001141972069-90' },
+                    interbank: { cuenta: '041-0000918513', cci: '-' },
+                    scotiabank: { cuenta: '000-3371123', cci: '009-170-000003371123-25' }
+                },
                 colors: { primary: '#1D4ED8', secondary: '#1E3A8A', light: '#EFF6FF', text: '#0F172A' }, // Azul y Amarillo Bembos
                 logoText: 'B',
                 heroImg: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80',
@@ -475,6 +480,11 @@
                     razon: 'EP DE FRANQUICIAS S.A.C',
                     direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
                 },
+                cuentas: {
+                    bcp: { cuenta: '193-1976301-0-35', cci: '002-193-001976301035-12' },
+                    interbank: { cuenta: '057-3000738000', cci: '-' },
+                    scotiabank: { cuenta: '9371788-000-01', cci: '009-170-000009371788-22' }
+                },
                 colors: { primary: '#166534', secondary: '#14532d', light: '#f0fdf4', text: '#022c22' }, // Verde oscuro
                 logoText: 'DB',
                 heroImg: 'https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?auto=format&fit=crop&w=1200&q=80',
@@ -497,6 +507,11 @@
                     ruc: '20505897812',
                     razon: 'CORPORACION PERUANA DE RESTAURANTES S.A.C.',
                     direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
+                cuentas: {
+                    bcp: { cuenta: '193-1205241-0-51', cci: '002-193-001205241051-16' },
+                    interbank: { cuenta: '108-3000216275', cci: '-' },
+                    scotiabank: { cuenta: '000-1059688', cci: '009-242-000001059688-90' }
                 },
                 colors: { primary: '#ea580c', secondary: '#c2410c', light: '#fff7ed', text: '#431407' }, // Naranja Popeyes
                 logoText: 'P',
@@ -521,6 +536,11 @@
                     razon: 'ALERT DEL PERU S.A.C.',
                     direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
                 },
+                cuentas: {
+                    bcp: { cuenta: '191-1576875-0-28', cci: '002-191001576875028-51' },
+                    interbank: { cuenta: '200-3001430031', cci: '-' },
+                    scotiabank: { cuenta: '1968416-000-01', cci: '009-170-000001968416-26' }
+                },
                 colors: { primary: '#e11d48', secondary: '#be123c', light: '#fff1f2', text: '#4c0519' }, // Rojo
                 logoText: 'CW',
                 heroImg: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=1200&q=80',
@@ -543,6 +563,11 @@
                     ruc: '20545699550',
                     razon: 'EP DE RESTAURANTES S.A.C.',
                     direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
+                cuentas: {
+                    bcp: { cuenta: '193-1976300-0-25', cci: '002-193-001976300025-14' },
+                    interbank: { cuenta: '057-3000738026', cci: '-' },
+                    scotiabank: { cuenta: '9371753-000-01', cci: '009-170-000009371753-26' }
                 },
                 colors: { primary: '#047857', secondary: '#065f46', light: '#ecfdf5', text: '#022c22' }, // Verde y Rojo Papa Johns (Usando Verde base)
                 logoText: 'PJ',
@@ -568,6 +593,11 @@
                     ruc: '20144215649',
                     razon: 'NUTRA S.A.C.',
                     direccion: 'JR.BERNARDO ALCEDO NRO. 662 LIMA-LINCE-LINCE'
+                },
+                cuentas: {
+                    bcp: { cuenta: '194-0080486-0-88', cci: '002-194-000080486088-90' },
+                    interbank: { cuenta: '107-3000226137', cci: '-' },
+                    scotiabank: { cuenta: '000-8885990', cci: '009 170 000008885990 25' }
                 },
                 colors: { primary: '#db2777', secondary: '#be185d', light: '#fdf2f8', text: '#500724' }, // Rosa Dunkin
                 logoText: 'DD',
@@ -887,6 +917,30 @@
             });
 
             document.getElementById('print-grand-total').innerText = document.getElementById('grand-total').innerText;
+
+            const cuentas = currentBrand.cuentas || {
+                bcp: { cuenta: '-', cci: '-' },
+                interbank: { cuenta: '-', cci: '-' },
+                scotiabank: { cuenta: '-', cci: '-' }
+            };
+
+            document.getElementById('cuentas-bancarias-body').innerHTML = `
+                <tr>
+                    <td class="p-2 border font-medium">Bco. Crédito (BCP)</td>
+                    <td class="p-2 border">${cuentas.bcp.cuenta}</td>
+                    <td class="p-2 border">${cuentas.bcp.cci}</td>
+                </tr>
+                <tr>
+                    <td class="p-2 border font-medium">Bco. Interbank</td>
+                    <td class="p-2 border">${cuentas.interbank.cuenta}</td>
+                    <td class="p-2 border">${cuentas.interbank.cci}</td>
+                </tr>
+                <tr>
+                    <td class="p-2 border font-medium">Bco. Scotiabank</td>
+                    <td class="p-2 border">${cuentas.scotiabank.cuenta}</td>
+                    <td class="p-2 border">${cuentas.scotiabank.cci}</td>
+                </tr>
+            `;
 
             // Mostrar el Modal
             document.getElementById('quote-modal').classList.remove('hidden');
